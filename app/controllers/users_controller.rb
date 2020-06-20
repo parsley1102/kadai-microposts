@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   
   
   def index
-    @users = User.order(id: :desc).page(params[:age]).per(25)
+    @users = User.order(id: :desc).page(params[:page]).per(25)
   end
 
   def show
@@ -41,6 +41,12 @@ class UsersController < ApplicationController
     counts(@user)
   end
   
+  
+  def likings
+    @user = User.find(params[:id])
+    @likings = @user.likings.page(params[:page])
+    counts(@user)
+  end
     private
 
   def user_params
