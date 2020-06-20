@@ -58,3 +58,7 @@ gem "kaminari"
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+
+group :production do
+  gem 'pg', '>= 0.18', '< 2.0'
+end
